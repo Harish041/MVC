@@ -34,18 +34,7 @@ namespace WebApiAss_1.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, Countrylist);
             return response;
         }
-
-  
-        public IHttpActionResult Get(int pid) //Read
-        {
-            var val = Countrylist.Where(x => x.id == pid).SingleOrDefault()?.CountryName;
-            if (val == null)
-            {
-                return NotFound();
-            }
-            return Ok(val);
-        }
-
+        
         public IHttpActionResult Post([FromBody] Country c) // create
         {
             Countrylist.Add(c);
